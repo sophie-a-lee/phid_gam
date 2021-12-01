@@ -32,4 +32,11 @@ df <- fread("data/dengue_rj.csv") %>%
   # Convert year to a factor to include as a fixed effect
   mutate(fyear = factor(year),
          # Create a time index value for INLA random effects
-         time = year - 2009)
+         time = year - 2009,
+         # Create a categorical level of influence variables with labels
+         regic18 = factor(level18_num, levels = 1:5,
+                          labels = c("Metropolis",
+                                     "Regional capital",
+                                     "Sub-regional centre",
+                                     "Zone centre",
+                                     "Local centre")))

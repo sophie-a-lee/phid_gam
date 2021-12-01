@@ -21,7 +21,7 @@
 
 
 #### Load packages and data from R script ####
-source("")
+source("load_data_packages.R")
 
 
 #### Explore data ####
@@ -62,13 +62,6 @@ df_socio <- df %>%
   # Select just a single year as these are stationary across the time period
   filter(year == 2010) %>% 
   dplyr::select(municip_code_ibge, urban10:level18_num) %>% 
-  # Convert level of influence to a factor with labels for each level
-  mutate(regic18 = factor(level18_num, levels = 1:5,
-                          labels = c("Metropolis",
-                                     "Regional capital",
-                                     "Sub-regional centre",
-                                     "Zone centre",
-                                     "Local centre"))) %>% 
   # Join to shapefile to plot
   full_join(., shp, by = "municip_code_ibge") %>% 
   st_as_sf()
