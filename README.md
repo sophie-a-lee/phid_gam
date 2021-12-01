@@ -1,2 +1,4 @@
 # phid_gam
- Bayesian spatio-temporal models with mgcv and Nimble
+
+Code and data to accompany the PHID 'Empirical Bayesian spatial models with mgcv' on 2nd December 2021.
+
